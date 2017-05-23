@@ -56,7 +56,7 @@ class CustomAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {// 데이터 클래스 하나를 리턴
-        return null;
+        return datas.get(position);
     }
 
     @Override
