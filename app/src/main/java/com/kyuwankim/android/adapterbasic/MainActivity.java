@@ -1,5 +1,6 @@
 package com.kyuwankim.android.adapterbasic;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,8 +10,12 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    final int LISTVIEW = 1;
+    final int GRIDVIEW = 2;
+    final int RECYCLERVIEW = 3;
+    final int CUSTOM = 4;
 
-    String datas[] = {"선택", "ListView", "GridView", "RecyclerView"};
+    String datas[] = {"선택", "ListView", "GridView", "RecyclerView", "Custom"};
 
     Spinner spinner;
 
@@ -32,7 +37,30 @@ public class MainActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MainActivity.this, datas[position], Toast.LENGTH_SHORT).show();
+                Intent intent;
+                switch (position) {
+                    case LISTVIEW:
+                        intent = new Intent(MainActivity.this, ListActivity.class);
+                        Toast.makeText(MainActivity.this, datas[position], Toast.LENGTH_SHORT).show();
+                        startActivity(intent);
+                        break;
+
+                    case GRIDVIEW:
+                        intent = new Intent(MainActivity.this, GridActivity.class);
+                        startActivity(intent);
+                        break;
+
+                    case RECYCLERVIEW:
+                        intent = new Intent(MainActivity.this, RecyclerActivity.class);
+                        startActivity(intent);
+                        break;
+
+                    case CUSTOM:
+                        intent = new Intent(MainActivity.this, CustomListActivity.class);
+                        startActivity(intent);
+                        break;
+
+                }
             }
 
             @Override
