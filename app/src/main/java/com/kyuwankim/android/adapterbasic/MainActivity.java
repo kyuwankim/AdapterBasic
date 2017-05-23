@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         // datas로 정의함
         // 2. 아답터 생성
         // ArrayAdapter 생성
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, datas);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, datas);
 
         // 3. 뷰에 아답터 연결
         spinner.setAdapter(adapter);
