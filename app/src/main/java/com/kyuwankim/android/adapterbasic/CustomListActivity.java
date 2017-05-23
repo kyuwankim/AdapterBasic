@@ -67,19 +67,29 @@ class CustomAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // xml을 class로 변환한다
-        if(convertView == null){
+        Holder holder;
+        if (convertView == null) {
+            holder = new Holder();
             convertView = inflater.inflate(R.layout.item_custom_list, null);
+            convertView.setTag(holder);
+        } else {
+            holder = (Holder) convertView.getTag();
         }
 
-        TextView no = (TextView) convertView.findViewById(R.id.item_no);
-        TextView title = (TextView) convertView.findViewById(R.id.item_name);
+        holder.no = (TextView) convertView.findViewById(R.id.item_no);
+        holder.title = (TextView) convertView.findViewById(R.id.item_name);
 
         Data data = datas.get(position);
-        no.setText(data.getId()+"");
-        title.setText(data.getTitle()+"");
+        holder.no.setText(data.getId() + "");
+        holder.title.setText(data.getTitle() + "");
 
 
         return convertView;
+    }
+
+    private class Holder {
+        public TextView no;
+        public TextView title;
     }
 }
 
