@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         spinner = (Spinner) findViewById(R.id.spinner);
         // List뷰에 데이터를 연결하기위한 순서
         // 1. 데이터 정의
