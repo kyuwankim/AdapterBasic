@@ -50,7 +50,3 @@ ListView 데이터를 연결하기위한 순서
         });
     }
 ```
-
-
-
-## RecyclerView
